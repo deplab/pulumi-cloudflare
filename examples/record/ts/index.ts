@@ -5,7 +5,7 @@ const config = new pulumi.Config();
 const accountId = config.require("accountId");
 
 const zone = new cloudflare.Zone("my-zone", {
-    zone: "ts-test-cloudflare-pulumi.com",
+    zone: `${pulumi.getStack()}-test-cloudflare-pulumi.com`,
     accountId: accountId,
 });
 
